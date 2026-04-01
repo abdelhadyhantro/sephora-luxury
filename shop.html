@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sephora - Shop Collections</title>
+    <!-- ربط الأيقونات والخطوط -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <header class="shop-nav">
+        <!-- السيرش عالشمال -->
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color: #e2d1b1;"></i>
+            <input type="text" id="searchInput" placeholder="Search brands...">
+        </div>
+
+        <!-- المنيو بالنص بالضبط -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        
+        <!-- الأيقونات عاليمين -->
+        <div class="shop-icons">
+        
+             <a href="#" class="cart-text" id="cart-btn">Cart(<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="main-title">Collections</h1>
+        
+        <!-- رسالة Not Found مخفية -->
+        <div id="no-results">Sorry, we couldn't find this brand.</div>
+
+        <div class="collections-grid">
+            <!-- Boss -->
+            <a href="items.html?brand=Boss" class="col-card">
+                <img src="Boss.jpg" class="card-img">
+                <video src="boss.mp4" class="card-video" loop muted></video>
+                <div class="overlay-text">Boss</div>
+            </a>
+            <!-- Dior -->
+            <a href="items.html?brand=Dior" class="col-card">
+                <img src="Dior.jpg" class="card-img">
+                <video src="compres.mp4" class="card-video" loop muted></video>
+                <div class="overlay-text">Dior</div>
+            </a>
+            <!-- Chanel -->
+            <a href="items.html?brand=Chanel" class="col-card">
+                <img src="Chanel.jpg" class="card-img">
+                <video src="chanel.mp4" class="card-video" loop muted></video>
+                <div class="overlay-text">Chanel</div>
+            </a>
+            <!-- Jean Paul -->
+            <a href="items.html?brand=JeanPaul" class="col-card">
+                <img src="scandal.jpg" class="card-img">
+                <video src="Scandal.mp4" class="card-video" loop muted></video>
+                <div class="overlay-text">Jean Paul</div>
+            </a>
+        </div>
+
+        <h2 class="sub-title">Most Loved Scents</h2>
+
+<div class="products-grid">
+    <!-- عطر Boss -->
+    <div class="product-card">
+        <div class="product-img-box">
+            <img src="scent.jpg" alt="Boss Bottled">
+            <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-details">
+            <span class="brand-name">BOSS</span>
+            <div class="name-price">
+                <h3>The Scent Magnetic</h3>
+                <span class="price">$145</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- عطر Dior -->
+    <div class="product-card">
+        <div class="product-img-box">
+            <img src="sauvage.jpg" alt="Sauvage">
+            <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-details">
+            <span class="brand-name">DIOR</span>
+            <div class="name-price">
+                <h3>Sauvage Elixir</h3>
+                <span class="price">$180</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- عطر Chanel -->
+    <div class="product-card">
+        <div class="product-img-box">
+            <img src="bleu.jpg" alt="Bleu de Chanel">
+            <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-details">
+            <span class="brand-name">CHANEL</span>
+            <div class="name-price">
+                <h3>Bleu de Chanel</h3>
+                <span class="price">$155</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- عطر Jean Paul -->
+    <div class="product-card">
+        <div class="product-img-box">
+            <img src="le-male.jpg" alt="Le Male">
+            <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-details">
+            <span class="brand-name">JEAN PAUL</span>
+            <div class="name-price">
+                <h3>Scandal Pour Homme</h3>
+                <span class="price">$130</span>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- هون بتقدر تضيف كروت المنتجات لاحقاً -->
+    </main>
+<!-- سلة المشتريات الجانبية -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <i class="fa-solid fa-xmark" id="close-cart" style="cursor:pointer;"></i>
+        </div>
+        <div id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <script src="shop.js"></script>
+</body>
+</html>

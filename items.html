@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection - Sephora</title>
+    <!-- ربط الأيقونات والخطوط -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- منستخدم نفس الـ CSS تبع الشوب للفخامة -->
+    <link rel="stylesheet" href="shop.css"> 
+</head>
+<body>
+
+    <header class="shop-nav">
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color: #e2d1b1;"></i>
+            <input type="text" id="searchInput" placeholder="Search in this collection...">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        
+        <div class="shop-icons">
+    
+         <a href="#" class="cart-text" id="cart-btn">Cart(<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- هاد العنوان رح يتغير سحرياً لاسم الماركة بالـ JS -->
+        <h1 id="brand-title" class="main-title">Collection</h1>
+        
+        <!-- هاد الـ Container الفاضي اللي رح ينزرع فيه الـ ٨ عطور -->
+        <div id="items-grid" class="products-grid">
+            <!-- العطور رح تظهر هون تلقائياً -->
+        </div>
+
+        <!-- رسالة Not Found لو السيرش ما لقى شي -->
+        <div id="no-results" style="display:none; text-align:center; color:#e2d1b1; margin-top:50px;">
+            No perfumes found in this collection.
+        </div>
+    </main>
+<!-- سلة المشتريات الجانبية -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <i class="fa-solid fa-xmark" id="close-cart" style="cursor:pointer;"></i>
+        </div>
+        <div id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <!-- ربط ملف الـ JS الجديد الخاص بالمنتجات -->
+    <script src="items.js"></script>
+</body>
+</html>

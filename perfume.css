@@ -1,0 +1,603 @@
+/* 1. إعدادات عامة (Global Settings) */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* هاد السطر بيمنع أي خروج عن العرض */
+    position: relative;
+    touch-action: pan-y; /* سطر جوهري: بيخبر التليفون إنه يتحرك بس فوق وتحت */
+    -webkit-overflow-scrolling: touch; /* بيعطي سكرول ناعم جداً مثل تطبيقات الأيفون */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a; /* لون أسود فخم كخلفية أساسية */
+    font-family: 'Playfair Display', serif; /* الخط الأساسي للموقع */
+    color: white;
+    overflow-x: hidden; /* منع ظهور شريط التمرير العرضي */
+}
+
+/* 2. الهيدر والقائمة (Navbar) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links li a:hover {
+    color: #e2d1b1;
+    transform: scale(1.1);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.nav-icons a:hover, #heartIcon:hover {
+    color: #e2d1b1;
+    transform: scale(1.1);
+}
+
+#heartIcon {
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.is-active { color: red !important; }
+
+/* 3. قسم الهيرو (Hero Section) */
+.hero-section {
+    height: 100vh; /* يأخذ طول الشاشة بالظبط */
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('sephora.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* تأثير الـ Parallax */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.established {
+    font-size: 10px;
+    letter-spacing: 8px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 120px;
+    color: #e2d1b1;
+    letter-spacing: -5px;
+    margin: 0;
+    font-weight: 300;
+    text-transform: capitalize;
+    line-height: 1;
+}
+
+.first-letter {
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+
+.tagline {
+    color: #e2d1b1;
+    font-size: 16px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.btn-discover {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid #e2d1b1;
+    color: #e2d1b1;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn-discover:hover {
+    background: #e2d1b1;
+    color: black;
+    box-shadow: 0 0 25px rgba(226, 209, 177, 0.4);
+}
+
+/* 4. قسم الـ About (About Section) */
+.about-section {
+    background-color: #050505; /* أسود أغمق قليلاً من الخلفية */
+    padding: 120px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    filter: grayscale(40%); /* أبيض وأسود لإعطاء طابع فخم */
+    border: 1px solid rgba(226, 209, 177, 0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text span {
+    color: #e2d1b1;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.about-text h2 {
+    font-size: 42px;
+    color: white;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.about-text p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+/* 5. تأثيرات إضافية (Optional Animations) */
+.perfume-bottle:hover {
+    transform: rotateY(15deg) rotateX(5deg) scale(1.1);
+    filter: drop-shadow(20px 20px 30px rgba(0,0,0,0.5));
+}
+
+/* تنسيق السلة الجانبية */
+.cart-sidebar {
+    position: fixed;
+    top: 0; 
+    right: -400px; /* مخفية برا الشاشة عاليمين */
+    width: 350px;
+    height: 100vh;
+    background: #0a0a0a; /* أسود متل الموقع */
+    border-left: 1px solid #e2d1b1;
+    z-index: 2000;
+    transition: 0.5s ease-in-out;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* الكلاس اللي بفتج السلة */
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.cart-header h3 { color: #e2d1b1; font-family: 'serif'; }
+
+/* تنسيق الغرض داخل السلة */
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 10px;
+}
+
+.cart-item img { width: 50px; height: 50px; object-fit: cover; }
+
+.cart-footer {
+    margin-top: auto;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.total-price { display: flex; justify-content: space-between; font-size: 18px; margin-bottom: 20px; }
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e2d1b1;
+    color: black;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+} 
+
+
+
+/* --- تعديلات الموبايل --- */
+@media (max-width: 768px) {
+    /* 1. تصغير العناوين الضخمة عشان ما تطلع برا الشاشة */
+    .main-title {
+        font-size: 60px !important; /* بدل 120px */
+        letter-spacing: 5px !important;
+    }
+
+    /* 2. تعديل الـ Nav (المنيو) */
+    .nav-links {
+        display: none; /* المنيو العادي بيختفي (ممكن نعمل منيو برجر لاحقاً) */
+    }
+    
+    .navbar, .shop-nav {
+        padding: 15px 20px !important;
+    }
+
+    /* 3. تعديل شبكة العطور (بدل 4 بيصيروا 2 جنب بعض) */
+    .products-grid, .collections-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 20px !important;
+    }
+
+    .col-card, .product-card {
+        width: 100% !important; /* بياخدوا مساحة المربع تبعهم */
+        height: 350px !important; /* منقصر الطول شوي للموبايل */
+    }
+
+    /* 4. السلة الجانبية (لازم تفتح بكامل الشاشة تقريباً) */
+    .cart-sidebar {
+        width: 85% !important;
+        right: -100% !important;
+    }
+    .cart-sidebar.open {
+        right: 0 !important;
+    }
+
+    /* 5. قسم الـ About (بدل ما يكونوا جنب بعض بيصيروا تحت بعض) */
+    .about-container {
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center;
+    }
+    .about-image img {
+        width: 100% !important;
+    }
+}
+
+
+/* --- تنسيق صندوق البروفايل --- */
+.profile-sidebar {
+    position: fixed;
+    top: 0; 
+    right: -400px; /* مخفي تماماً برا الشاشة */
+    width: 320px;
+    height: 100vh;
+    background: #0a0a0a; /* أسود فخم */
+    border-left: 1px solid rgba(226, 209, 177, 0.3);
+    z-index: 6000;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.profile-sidebar.open {
+    right: 0; /* بيطلع لما نكبس عالزر */
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(226, 209, 177, 0.1);
+    padding-bottom: 15px;
+}
+
+.profile-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: #e2d1b1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+#close-profile {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #888;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 0;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: #e2d1b1;
+}
+
+.save-btn {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e2d1b1;
+    color: black;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.save-btn:hover {
+    background: white;
+}
+
+/* =========================================
+   تنسيق الأقسام الجديدة (About & Footer)
+   ========================================= */
+
+/* 1. قسم الـ About */
+.about-section {
+    background-color: #050505; /* أسود أغمق شوي من الخلفية ليعطي عمق */
+    padding: 120px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    align-items: center;
+    gap: 80px; /* مسافة بين الصورة والكلام */
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* أبيض وأسود ليعطي فخامة */
+    border: 1px solid rgba(226, 209, 177, 0.2);
+    transition: 0.6s ease;
+}
+
+.about-image img:hover {
+    filter: grayscale(0%); /* الصورة بتلون لما تلمسها */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.small-title {
+    color: #e2d1b1;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.about-text p {
+    color: #888;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 25px;
+    font-style: italic; /* طابع قصصي فخم */
+}
+
+.btn-read-more {
+    color: #e2d1b1;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e2d1b1;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* 2. قسم الفوتر والاتصال (Footer & Contact) */
+.main-footer {
+    background-color: #000;
+    padding: 80px 60px 30px;
+    border-top: 1px solid rgba(226, 209, 177, 0.05);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3 {
+    color: white;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.footer-col h4 {
+    color: #e2d1b1;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.footer-col p, .footer-col ul li {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-col ul li i {
+    color: #e2d1b1;
+    font-size: 13px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #666;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #111;
+    color: #444;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* 3. تنزيل ناعم عند الضغط على الروابط */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 4. تعديل بسيط للموبايل لهالقسمين */
+@media (max-width: 768px) {
+    .about-container, .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-col ul li {
+        justify-content: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* هاد الكود بيخلي الحركات تشتغل بس لما يكون في ماوس حقيقي */
+@media (hover: hover) {
+    .product-card:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+    /* حط هون كل حركات الـ hover اللي عندك */
+}

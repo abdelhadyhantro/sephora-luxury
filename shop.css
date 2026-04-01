@@ -1,0 +1,269 @@
+/* --- 1. الإعدادات العامة (الأساس) --- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* هاد السطر بيمنع أي خروج عن العرض */
+    position: relative;
+    touch-action: pan-y; /* سطر جوهري: بيخبر التليفون إنه يتحرك بس فوق وتحت */
+    -webkit-overflow-scrolling: touch; /* بيعطي سكرول ناعم جداً مثل تطبيقات الأيفون */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    background-color: #0a0a0a;
+    color: white;
+    font-family: 'serif';
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('products.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background-image 1.2s ease-in-out;
+}
+
+/* --- 2. الهيدر والمنيو --- */
+.shop-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    position: relative;
+    z-index: 100;
+}
+
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav a {
+    color: #e2d1b1;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover { color: white; }
+
+.search-bar {
+    border-bottom: 1px solid rgba(226, 209, 177, 0.4);
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    margin-left: 10px;
+    width: 150px;
+}
+
+.shop-icons { display: flex; gap: 20px; align-items: center; }
+.shop-icons a { color: white; text-decoration: none; font-size: 18px; }
+.cart-text { font-size: 14px !important; color: #e2d1b1 !important; cursor: pointer; }
+
+/* --- 3. قسم العناوين والشبكات --- */
+.main-title {
+    text-align: center;
+    font-size: 50px;
+    margin: 60px 0;
+    letter-spacing: 8px;
+    color: #e2d1b1;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 32px;
+    letter-spacing: 6px;
+    color: #e2d1b1;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.products-grid, .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 0 50px 50px;
+}
+
+/* --- 4. كروت المنتجات (هنا تم التصحيح لظهور الأسعار) --- */
+.col-card {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: transparent;
+}
+
+.product-card {
+    position: relative;
+    height: 520px; /* زدنا الطول ليوسع الكلام */
+    display: flex;
+    flex-direction: column; /* ترتيب عمودي: صورة فوق وكلام تحت */
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.5s ease;
+    padding: 15px;
+}
+
+.product-card:hover { border-color: #e2d1b1; transform: translateY(-10px); }
+
+/* صندوق الصورة */
+.product-img-box {
+    width: 100%;
+    height: 380px; /* مساحة محددة للصورة */
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.card-img, .card-video, .product-img-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+}
+
+.product-img-box img { object-fit: cover; mix-blend-mode: lighten; }
+
+.col-card:hover .card-img, .col-card:hover .card-video, .product-card:hover img { transform: scale(1.1); }
+
+.card-video { position: absolute; top: 0; left: 0; opacity: 0; z-index: 1; }
+.video-active .card-video { opacity: 1; }
+.video-active .card-img { opacity: 0; }
+
+/* نصوص كروت الكولكشن */
+.overlay-text {
+    position: absolute;
+    bottom: 30px; left: 0; width: 100%;
+    text-align: center; color: #e2d1b1;
+    font-size: 20px; letter-spacing: 3px;
+    text-transform: uppercase; z-index: 10;
+}
+
+/* نصوص كروت المنتجات Most Loved */
+.brand-name {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.name-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.name-price h3 {
+    font-size: 15px;
+    margin: 0;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.price { color: #e2d1b1; font-size: 14px; font-weight: bold; }
+
+.quick-view {
+    position: absolute; bottom: -50px; left: 0; width: 100%;
+    background: rgba(226, 209, 177, 0.9); color: black;
+    text-align: center; padding: 12px 0;
+    font-size: 11px; text-transform: uppercase;
+    transition: 0.4s ease; cursor: pointer;
+}
+.product-card:hover .quick-view { bottom: 0; }
+
+/* --- 5. سلة المشتريات الجانبية --- */
+.cart-sidebar {
+    position: fixed;
+    top: 0; right: -450px;
+    width: 320px; height: 100vh;
+    background: #0a0a0a;
+    border-left: 1px solid rgba(226, 209, 177, 0.3);
+    z-index: 5000;
+    transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.cart-sidebar.open { right: 0; }
+
+#cart-items-container { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
+
+.checkout-btn {
+    width: 100%; padding: 15px;
+    background: #e2d1b1; color: black;
+    border: none; cursor: pointer;
+    text-transform: uppercase; font-weight: bold;
+    transition: 0.3s;
+}
+
+/* --- 6. رسالة البحث (Not Found) --- */
+
+#no-results {
+    display: none !important;
+    text-align: center;
+    width: 100%;
+    color: #e2d1b1;
+    font-size: 18px;
+    margin: 40px 0;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- 7. إصلاح الموبايل --- */
+@media (max-width: 768px) {
+    .shop-nav { flex-direction: column; padding: 20px 15px; gap: 20px; }
+    nav { position: static; transform: none; order: 3; }
+    nav ul { gap: 15px; }
+    .search-bar { order: 2; width: 100%; }
+    .shop-icons { position: absolute; top: 20px; right: 20px; order: 1; }
+    .main-title { font-size: 28px; margin: 30px 0; letter-spacing: 4px; }
+    
+    .products-grid, .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .col-card { height: 300px; }
+    .product-card { height: 400px; } /* قصرنا الكرت للموبايل */
+    .product-img-box { height: 280px; } /* قصرنا الصورة للموبايل */
+    
+    .cart-sidebar { width: 100%; right: -100%; }
+}
+/* هاد الكود بيخلي الحركات تشتغل بس لما يكون في ماوس حقيقي */
+@media (hover: hover) {
+    .product-card:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+    /* حط هون كل حركات الـ hover اللي عندك */
+}

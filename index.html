@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sephora | Luxury Fragrance Heritage</title>
+    <!-- ربط الأيقونات (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- ربط الخط الفخم (Playfair Display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- ربط ملف الـ CSS -->
+    <link rel="stylesheet" href="perfume.css">
+</head>
+<body>
+
+    <!-- القائمة العلوية (Navbar) -->
+    <nav class="navbar">
+        <div class="logo">Sephora</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Products</a></li>
+            <li><a href="#about">About</a></li> <!-- ينزلك لقسم القصة -->
+        </ul>
+
+        <div class="nav-icons">
+            <a href="#" id="user-btn"><i class="fa-regular fa-user"></i></a>
+            <a href="#" id="cart-btn">Cart(<span id="cart-count">0</span>)</a>
+            <a href="#" class="heart-btn"><i class="fa-regular fa-heart" id="heartIcon"></i></a>
+        </div>
+    </nav>
+
+    <!-- قسم الهيرو (Hero Section) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="established">ESTABLISHED 1976 — PARIS</p>
+            <h1 class="main-title">
+                <span class="first-letter">S</span>eph<span>o</span>ra
+            </h1>
+            <p class="tagline">The Essence of Elegance</p>
+            <a href="shop.html" class="btn-discover">Discover the Collection</a>
+        </div> 
+    </section>
+
+    <!-- قسم عن البراند (About Section) -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="scent.jpg" alt="Sephora Heritage">
+            </div>
+            <div class="about-text">
+                <span class="small-title">The Art of Fragrance Since 1976</span>
+                <h2>Crafting Emotions Through Scents</h2>
+                <p>
+                    Founded in the heart of Paris in 1976, Sephora began as a dream to capture the essence of human emotion in a bottle. For nearly five decades, we have traveled the globe to source the rarest ingredients—from the hand-picked jasmine of Grasse to the deep, mysterious oud of the East.
+                </p>
+                <p>
+                    We believe that a perfume is more than just a scent; it is your personal signature, a silent language that speaks before you do. Our curated collections are chosen for those who demand nothing less than extraordinary elegance.
+                </p>
+                <a href="shop.html" class="btn-read-more">Explore Our Heritage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر (Footer / Contact) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>SEPHORA</h3>
+                <p>Bringing the world's most luxurious scents to your doorstep since 1976.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> contact@sephora-luxury.com</li>
+                    <li><i class="fa-solid fa-phone"></i> +33 1 23 45 67 89</li>
+                    <li><i class="fa-solid fa-location-dot"></i> 70 Av. des Champs-Élysées, Paris</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sephora Luxury Fragrance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- سلة المشتريات الجانبية -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <i class="fa-solid fa-xmark" id="close-cart"></i>
+        </div>
+        <div id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- صندوق الملف الشخصي -->
+    <div id="profile-sidebar" class="profile-sidebar">
+        <div class="profile-header">
+            <h3>My Profile</h3>
+            <i class="fa-solid fa-xmark" id="close-profile"></i>
+        </div>
+        <div class="profile-form">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="userName" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="userEmail" placeholder="Enter your email">
+            </div>
+            <button class="save-btn" onclick="saveProfile()">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="perfume.js"></script>
+</body>
+</html>
